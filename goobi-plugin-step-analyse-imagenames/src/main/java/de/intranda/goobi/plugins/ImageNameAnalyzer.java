@@ -266,6 +266,10 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                     DocStruct ds = docstructs.get("VDS");
                     index = setDocstructAndPagesToLogical(logical, physType, index, ds);
                 }
+                if (docstructs.containsKey("VDS2")) {
+                    DocStruct ds = docstructs.get("VDS2");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
                 if (docstructs.containsKey("VS")) {
                     DocStruct ds = docstructs.get("VS");
                     index = setDocstructAndPagesToLogical(logical, physType, index, ds);
@@ -290,6 +294,30 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                     DocStruct ds = docstructs.get("VS5");
                     index = setDocstructAndPagesToLogical(logical, physType, index, ds);
                 }
+                if (docstructs.containsKey("VS6")) {
+                    DocStruct ds = docstructs.get("VS6");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("VS7")) {
+                    DocStruct ds = docstructs.get("VS7");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("VS8")) {
+                    DocStruct ds = docstructs.get("VS8");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("VS9")) {
+                    DocStruct ds = docstructs.get("VS9");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("VS10")) {
+                    DocStruct ds = docstructs.get("VS10");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("VS11")) {
+                    DocStruct ds = docstructs.get("VS11");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
                 index = setDocstructAndPagesToLogical(logical, physType, index, text);
 
                 if (docstructs.containsKey("NS")) {
@@ -306,7 +334,7 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                 }
                 if (docstructs.containsKey("NS3")) {
                     logical.addChild(docstructs.get("NS3"));
-                    DocStruct ds = docstructs.get("");
+                    DocStruct ds = docstructs.get("NS3");
                     index = setDocstructAndPagesToLogical(logical, physType, index, ds);
                 }
                 if (docstructs.containsKey("NS4")) {
@@ -315,6 +343,22 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                 }
                 if (docstructs.containsKey("NS5")) {
                     DocStruct ds = docstructs.get("NS5");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("NS6")) {
+                    DocStruct ds = docstructs.get("NS6");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("NS7")) {
+                    DocStruct ds = docstructs.get("NS7");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("NS8")) {
+                    DocStruct ds = docstructs.get("NS8");
+                    index = setDocstructAndPagesToLogical(logical, physType, index, ds);
+                }
+                if (docstructs.containsKey("NS9")) {
+                    DocStruct ds = docstructs.get("NS9");
                     index = setDocstructAndPagesToLogical(logical, physType, index, ds);
                 }
                 if (docstructs.containsKey("HDS")) {
@@ -385,13 +429,15 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
         try {
             logical.addChild(ds);
             List<Reference> refs = ds.getAllToReferences("logical_physical");
-            for (Reference ref : refs) {
-                DocStruct dsPage = ref.getTarget();
-                Metadata mdPhysPageNo = new Metadata(physType);
-                mdPhysPageNo.setValue(String.valueOf(index));
-                dsPage.addMetadata(mdPhysPageNo);
-                logical.addReferenceTo(dsPage, "logical_physical");
-                index = index + 1;
+            if (refs != null) {
+                for (Reference ref : refs) {
+                    DocStruct dsPage = ref.getTarget();
+                    Metadata mdPhysPageNo = new Metadata(physType);
+                    mdPhysPageNo.setValue(String.valueOf(index));
+                    dsPage.addMetadata(mdPhysPageNo);
+                    logical.addReferenceTo(dsPage, "logical_physical");
+                    index = index + 1;
+                }
             }
         } catch (TypeNotAllowedAsChildException | MetadataTypeNotAllowedException e) {
             // TODO Auto-generated catch block
