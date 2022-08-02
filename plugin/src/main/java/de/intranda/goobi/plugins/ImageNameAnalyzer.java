@@ -106,7 +106,7 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                 log.info(process.getTitel() + ": no images found");
                 return PluginReturnValue.ERROR;
             }
-        } catch (IOException | InterruptedException | SwapException | DAOException e) {
+        } catch (IOException | SwapException | DAOException e) {
             log.error(e);
             return PluginReturnValue.ERROR;
         }
@@ -143,7 +143,7 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
                 }
             }
 
-        } catch (ReadException | PreferencesException | WriteException | IOException | InterruptedException | SwapException | DAOException e) {
+        } catch (ReadException | PreferencesException | IOException | SwapException e) {
             log.error(e);
             return PluginReturnValue.ERROR;
         }
@@ -417,7 +417,7 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
         }
         try {
             process.writeMetadataFile(ff);
-        } catch (WriteException | PreferencesException | IOException | InterruptedException | SwapException | DAOException e) {
+        } catch (WriteException | PreferencesException | IOException | SwapException e) {
             log.error(e);
             return PluginReturnValue.ERROR;
         }
