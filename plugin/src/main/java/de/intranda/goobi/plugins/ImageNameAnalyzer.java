@@ -2,7 +2,6 @@ package de.intranda.goobi.plugins;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +12,6 @@ import org.apache.commons.configuration.HierarchicalConfiguration;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
 import org.apache.commons.lang.SystemUtils;
-import org.goobi.beans.LogEntry;
 import org.goobi.beans.Process;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
@@ -24,10 +22,10 @@ import org.goobi.production.enums.StepReturnValue;
 import org.goobi.production.plugin.interfaces.IStepPluginVersion2;
 
 import de.sub.goobi.config.ConfigPlugins;
+import de.sub.goobi.helper.Helper;
 import de.sub.goobi.helper.StorageProvider;
 import de.sub.goobi.helper.exceptions.DAOException;
 import de.sub.goobi.helper.exceptions.SwapException;
-import de.sub.goobi.persistence.managers.ProcessManager;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
@@ -234,13 +232,8 @@ public class ImageNameAnalyzer implements IStepPluginVersion2 {
 
                     if (!match) {
                         // no match found, use uncounted, add to process log
-                        LogEntry entry = LogEntry.build(process.getId())
-                                .withContent("no match found for image " + imageName)
-                                .withType(LogType.INFO)
-                                .withUsername("Image analyzer")
-                                .withCreationDate(new Date());
-                        ProcessManager.saveLogEntry(entry);
-                        process.getProcessLog().add(entry);
+                        Helper.addMessageToProcessJournal(process.getId(), LogType.ERROR, "no match found for image " + imageName, "Image analyzer");
+
                         log.debug(process.getTitel() + ": no match found for image " + imageName);
                         if (orderImagesByDocstruct) {
                             text.addReferenceTo(dsPage, "logical_physical");
