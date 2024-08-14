@@ -44,6 +44,7 @@ Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieh
 * Wenn der reguläre Ausdruck nicht zutrifft, wird im Anschluss die Liste der konfigurierten `item` durchlaufen und geprüft, ob der Dateiname mit dem Ausdruck, gefolgt von einer optionalen Zahl und einer optionalen recto-verso Angabe (r oder v) endet. Wenn dies der Fall ist, wird das konfigurierte Strukturelement erzeugt und die Seite wird diesem Element zugewiesen. Durch die Angabe einer Zählung können neue Stukturelemente des selben Typs definiert werden. Haben zwei oder mehr Dateien keine oder die gleiche Zählung, werden sie dem gleichen Strukturelement zugewiesen.
 * Wenn weder der reguläre Ausdruck noch die Liste der Strukturelemente auf den Dateinamen zutreffen, wird eine Page mit der logischen Sortierung "uncounted" erzeugt und ein Eintrag in das Vorgangslog geschrieben.
 
+![Auswahl des Plugsins zur Durchführung des Arbeitschrittes](screen1_de.png)
 
 ## Konfiguration
 Diese Konfigurationdatei `plugin_intranda_step_imagename_analyse.xml` dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:

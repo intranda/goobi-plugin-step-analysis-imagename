@@ -45,6 +45,7 @@ The way the plugin works within the correctly configured workflow looks like thi
 * If the regular expression does not apply, the system then runs through the list of configured items and checks whether the file name ends with the expression followed by an optional number and an optional recto-verso specification (r or v). If this is the case, the configured structural element is created and the page is assigned to this element. By specifying a count, new structural elements of the same type can be defined. If two or more files have no count or the same count, they are assigned to the same structural element.
 * If neither the regular expression nor the list of structural elements apply to the file names, a page with the logical sorting "uncounted" is created and an entry is written in the process log.
 
+![Selection of the plugin for performing the step](screen1_en.png)
 
 ## Configuration
 The configuration file `plugin_intranda_step_imagename_analyse.xml` used to configure the plugin and must have the following structure:
