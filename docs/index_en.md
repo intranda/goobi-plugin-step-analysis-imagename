@@ -2,8 +2,11 @@
 title: Automatic pagination based on file names
 identifier: intranda_step_imagename_analyse
 published: true
-description: This is a technical documentation for the plugin to automatically create a
-  pagination based on filenames.
+description: This is a technical documentation for the plugin to automatically create a pagination based on filenames.
+keywords:
+    - Goobi workflow
+    - Plugin
+    - Step Plugin
 ---
 ## Introduction
 This documentation describes the installation, configuration and use of the plugin. This plugin can be used to automatically prepare METS-files, create a basic structure and set a pagination.
