@@ -3,6 +3,10 @@ title: Automatische Paginierung auf Basis der Dateinamen
 identifier: intranda_step_imagename_analyse
 published: true
 description: Dies ist eine technische Dokumentation für das Plugin zum automatischen Erstellen einer Paginierung basierend auf den Dateinamen.
+keywords:
+    - Goobi workflow
+    - Plugin
+    - Step Plugin
 ---
 ## Einführung
 Die vorliegende Dokumentation beschreibt die Installation, Konfiguration und den Einsatz des Plugins. Mit Hilfe dieses Plugins können METS-Dateien automatisch aufbereitet, eine Grundstruktur erzeugt sowie eine Paginierung gesetzt werden.
