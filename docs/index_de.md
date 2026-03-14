@@ -38,7 +38,7 @@ Nachdem das Plugin installiert und konfiguriert wurde, kann es innerhalb eines A
 
 Dazu muss innerhalb der gewünschten Aufgabe das Plugin `intranda_step_imagename_analyse` ausgewählt werden. Des Weiteren muss die Checkbox `Automatische Aufgabe` gesetzt sein.
 
-![Auswahl des Plugsins zur Durchführung des Arbeitschrittes](screen1_de.png)
+![Auswahl des Plugins zur Durchführung des Arbeitsschrittes](screen1_de.png)
 
 Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieht folgendermaßen aus:
 
@@ -47,12 +47,12 @@ Die Arbeitsweise des Plugins innerhalb des korrekt konfigurierten Workflows sieh
 * Anschließend werden die Dateien aus dem master Ordner gelesen und alphanumerisch sortiert.
 * Für jede Datei wird nun geprüft, ob sie dem konfigurierten regulären Ausdruck entspricht.
 * Ist dies der Fall, wird eine neue Page erstellt. Die physische Reihenfolge entspricht der Sortierung im Dateisystem, die logische Seitennummer wird aus der ersten Gruppe des regulären Ausdrucks geholt.
-* Wenn der reguläre Ausdruck nicht zutrifft, wird im Anschluss die Liste der konfigurierten `item` durchlaufen und geprüft, ob der Dateiname mit dem Ausdruck, gefolgt von einer optionalen Zahl und einer optionalen recto-verso Angabe (r oder v) endet. Wenn dies der Fall ist, wird das konfigurierte Strukturelement erzeugt und die Seite wird diesem Element zugewiesen. Durch die Angabe einer Zählung können neue Stukturelemente des selben Typs definiert werden. Haben zwei oder mehr Dateien keine oder die gleiche Zählung, werden sie dem gleichen Strukturelement zugewiesen.
+* Wenn der reguläre Ausdruck nicht zutrifft, wird im Anschluss die Liste der konfigurierten `item` durchlaufen und geprüft, ob der Dateiname mit dem Ausdruck, gefolgt von einer optionalen Zahl und einer optionalen recto-verso Angabe (r oder v) endet. Wenn dies der Fall ist, wird das konfigurierte Strukturelement erzeugt und die Seite wird diesem Element zugewiesen. Durch die Angabe einer Zählung können neue Strukturelemente des selben Typs definiert werden. Haben zwei oder mehr Dateien keine oder die gleiche Zählung, werden sie dem gleichen Strukturelement zugewiesen.
 * Wenn weder der reguläre Ausdruck noch die Liste der Strukturelemente auf den Dateinamen zutreffen, wird eine Page mit der logischen Sortierung "uncounted" erzeugt und ein Eintrag in das Vorgangslog geschrieben.
 
 
 ## Konfiguration
-Diese Konfigurationdatei `plugin_intranda_step_imagename_analyse.xml` dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:
+Diese Konfigurationsdatei `plugin_intranda_step_imagename_analyse.xml` dient zur Konfiguration des Plugins und muss wie folgt aufgebaut sein:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
